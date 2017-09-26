@@ -99,12 +99,14 @@ def play(board)
   i = 1
   while (i <= 9) do
     turn(board)
+    if (over?(board))   #This is completely uneeded, except to pass the tests. :-(
     if (won?(board))
       puts "Congratulations player #{winner(board)}, you won!"
       return
     elsif (draw?(board))
-      puts "Cat's game!"
+      puts "Cat's Game!"
       return
+    end
     end
     i += 1
   end
