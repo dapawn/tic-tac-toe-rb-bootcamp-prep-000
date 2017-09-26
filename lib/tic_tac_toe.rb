@@ -87,7 +87,7 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
-    move(board, index)
+    move(board, index, current_player(board))
     display_board(board)
   else
     turn(board)
@@ -99,6 +99,13 @@ def play(board)
   i = 1
   while (i <= 9) do
     turn(board)
+    if (won?(board))
+      puts "Congratulations player #{winner(board)}, you won!"
+      return
+    elsif (draw?(board))
+      puts "Cat's game!"
+      return
+    end
     i += 1
   end
 end
