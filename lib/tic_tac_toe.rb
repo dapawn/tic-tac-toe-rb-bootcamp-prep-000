@@ -98,8 +98,8 @@ end
 def play(board)
   i = 1
   while (i <= 9) do
+   if (!over?(board))   #This is completely uneeded, except to pass the tests. :-(
     turn(board)
-    if (over?(board))   #This is completely uneeded, except to pass the tests. :-(
     if (won?(board))
       puts "Congratulations player #{winner(board)}, you won!"
       return
@@ -107,7 +107,7 @@ def play(board)
       puts "Cat's Game!"
       return
     end
-    end
     i += 1
+   end
   end
 end
